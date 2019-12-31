@@ -2,12 +2,17 @@ package com.tphamtran.dagger2example.dagger
 
 import com.tphamtran.dagger2example.MainActivity
 import com.tphamtran.dagger2example.car.Car
+import com.tphamtran.dagger2example.scope.ActivityScope
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Named
 
-@Component(modules = [WheelsModule::class, PetrolEngineModule::class])
-interface CarComponent {
+@ActivityScope
+@Component(
+    dependencies = [AppComponent::class],
+    modules = [WheelsModule::class, PetrolEngineModule::class]
+)
+interface ActivityComponent {
     fun getCar(): Car
     fun inject(mainActivity: MainActivity)
 
@@ -20,6 +25,9 @@ interface CarComponent {
         @BindsInstance
         fun engineCapacity(@Named("engineCapacity") engineCapacity: Int): Builder
 
-        fun build(): CarComponent
+        // If you don't have "@Component.Builder", this method will be generated automatically
+        fun appComponent(appComponent: AppComponent): Builder
+
+        fun build(): ActivityComponent
     }
 }

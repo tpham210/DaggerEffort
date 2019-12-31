@@ -1,11 +1,14 @@
 package com.tphamtran.dagger2example.car
 
 import android.util.Log
+import com.tphamtran.dagger2example.scope.ActivityScope
 import javax.inject.Inject
 
+@ActivityScope
 data class Car @Inject constructor(
     val wheels: Wheels,
-    val engine: Engine
+    val engine: Engine,
+    val driver: Driver
 ) {
     private val TAG = javaClass.simpleName
 
@@ -17,6 +20,6 @@ data class Car @Inject constructor(
 
     internal fun drive() {
         engine.start()
-        Log.d(TAG, "driving...!")
+        Log.d(TAG, "$driver drives $this")
     }
 }
