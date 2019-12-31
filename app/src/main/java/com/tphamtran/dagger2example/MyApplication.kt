@@ -3,16 +3,18 @@ package com.tphamtran.dagger2example
 import android.app.Application
 import com.tphamtran.dagger2example.dagger.AppComponent
 import com.tphamtran.dagger2example.dagger.DaggerAppComponent
+import com.tphamtran.dagger2example.dagger.DriverModule
 
 class MyApplication: Application() {
 
-    private lateinit var sppComponent: AppComponent
+    private lateinit var appComponent: AppComponent
 
     override fun onCreate() {
         super.onCreate()
 
-        sppComponent = DaggerAppComponent.create()
+//        appComponent = DaggerAppComponent.create()
+        appComponent = DaggerAppComponent.factory().create(DriverModule("T"))
     }
 
-    fun getAppComponent() = sppComponent
+    fun getAppComponent() = appComponent
 }

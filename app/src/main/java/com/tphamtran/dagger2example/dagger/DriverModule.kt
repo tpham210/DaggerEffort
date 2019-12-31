@@ -5,15 +5,23 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
+//
+//@Module
+//abstract class DriverModule {
+//
+//    @Module
+//    companion object DriverModule {
+//
+//        @JvmStatic
+//        @Singleton
+//        @Provides
+//        fun provideDriver(): Driver = Driver()
+//    }
+//}
 @Module
-abstract class DriverModule {
+data class DriverModule(val driverName: String) {
 
-    @Module
-    companion object DriverModule {
-
-        @JvmStatic
-        @Singleton
-        @Provides
-        fun provideDriver(): Driver = Driver()
-    }
+    @Singleton
+    @Provides
+    fun provideDriver(): Driver = Driver(driverName)
 }

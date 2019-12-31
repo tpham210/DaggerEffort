@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.tphamtran.dagger2example.car.Car
 import com.tphamtran.dagger2example.dagger.ActivityComponent
-import com.tphamtran.dagger2example.dagger.DaggerActivityComponent
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -17,12 +16,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        activityComponent = DaggerActivityComponent
-            .builder()
-            .horsePower(150)
-            .engineCapacity(1400)
-            .appComponent((application as MyApplication).getAppComponent())
-            .build()
+//        activityComponent = DaggerActivityComponent
+//            .builder()
+//            .horsePower(150)
+//            .engineCapacity(1400)
+//            .appComponent((application as MyApplication).getAppComponent())
+//            .build()
+
+        activityComponent = (application as MyApplication).getAppComponent()
+            .getActivityComponentFactory()
+            .create(150, 1400)
+//            .horsePower(150)
+//            .engineCapacity(1400)
+//            .build()
 
         activityComponent.inject(this)
 
