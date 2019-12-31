@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         // Because we marked "Car" in the @ActivityScope, only one instance of the Car
         // exist during the Activity life cycle. Therefore, even though we create two objects
-        // BUT there are the same instance referencing the same object if you look at the memory reference.
+        // BUT they are two instances referencing the same object if you look at the memory reference.
         car1.drive()
         car2.drive()
     }
