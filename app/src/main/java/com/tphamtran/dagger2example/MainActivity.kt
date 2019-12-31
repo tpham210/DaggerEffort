@@ -6,6 +6,16 @@ import com.tphamtran.dagger2example.car.Car
 import com.tphamtran.dagger2example.dagger.ActivityComponent
 import javax.inject.Inject
 
+/**
+ * This work would not be possible without the dedicated work of Florian Walther
+ * The owner of codinginflow.com website.
+ *
+ * Thank you, sir!
+ *
+ * With all due respect,
+ * -T.
+ */
+
 class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var car1: Car
@@ -26,9 +36,6 @@ class MainActivity : AppCompatActivity() {
         activityComponent = (application as MyApplication).getAppComponent()
             .getActivityComponentFactory()
             .create(150, 1400)
-//            .horsePower(150)
-//            .engineCapacity(1400)
-//            .build()
 
         activityComponent.inject(this)
 

@@ -5,7 +5,16 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
-//
+/**
+ * This work would not be possible without the dedicated work of Florian Walther
+ * The owner of codinginflow.com website.
+ *
+ * Thank you, sir!
+ *
+ * With all due respect,
+ * -T.
+ */
+
 //@Module
 //abstract class DriverModule {
 //

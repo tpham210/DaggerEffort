@@ -7,6 +7,16 @@ import dagger.Module
 import dagger.Provides
 
 /**
+ * This work would not be possible without the dedicated work of Florian Walther
+ * The owner of codinginflow.com website.
+ *
+ * Thank you, sir!
+ *
+ * With all due respect,
+ * -T.
+ */
+
+/**
  * Annotates a class that contributes to the object graph.
  */
 @Module
