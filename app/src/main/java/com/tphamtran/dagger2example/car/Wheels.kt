@@ -1,4 +1,4 @@
-package com.tphamtran.dagger2example
+package com.tphamtran.dagger2example.car
 
 import android.util.Log
 

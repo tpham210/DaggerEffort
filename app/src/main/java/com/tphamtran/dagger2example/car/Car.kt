@@ -1,4 +1,4 @@
-package com.tphamtran.dagger2example
+package com.tphamtran.dagger2example.car
 
 import android.util.Log
 import javax.inject.Inject
@@ -14,5 +14,9 @@ data class Car @Inject constructor(
     // So Dagger will create Remote & execute this method.
     @Inject
     internal fun enableRemote(remote: Remote) = remote.setListener(this)
-    internal fun drive() = Log.d(TAG, "driving...!")
+
+    internal fun drive() {
+        engine.start()
+        Log.d(TAG, "driving...!")
+    }
 }

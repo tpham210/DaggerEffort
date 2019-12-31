@@ -1,7 +1,10 @@
 package com.tphamtran.dagger2example
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.tphamtran.dagger2example.car.Car
+import com.tphamtran.dagger2example.dagger.CarComponent
+import com.tphamtran.dagger2example.dagger.DaggerCarComponent
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
