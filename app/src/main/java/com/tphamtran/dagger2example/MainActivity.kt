@@ -2,16 +2,22 @@ package com.tphamtran.dagger2example
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var car: CarComponent
+    @Inject
+    lateinit var car: Car
+
+    private lateinit var carComponent: CarComponent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val carComponent = DaggerCarComponent.create()
-        carComponent.getCar().drive()
+        carComponent = DaggerCarComponent.create()
+        carComponent.inject(this)
+
+        car.drive()
     }
 }
