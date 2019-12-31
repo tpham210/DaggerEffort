@@ -1,7 +1,17 @@
 package com.tphamtran.dagger2example
 
-import javax.inject.Inject
+import android.util.Log
 
-class Wheels @Inject constructor() {
+// We don't own this class so we can't annotate it with @Inject
+data class Wheels(
+    val rims: Rims,
+    val tires: Tires
+) {
     private val TAG = javaClass.simpleName
+}
+
+class Rims
+class Tires {
+    private val TAG = javaClass.simpleName
+    fun inflate() = Log.d(TAG, "Tires inflated")
 }
