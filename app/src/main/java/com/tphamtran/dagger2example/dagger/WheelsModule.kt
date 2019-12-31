@@ -10,18 +10,25 @@ import dagger.Provides
  * Annotates a class that contributes to the object graph.
  */
 @Module
-class WheelsModule {
-    @Provides
-    fun provideRims() = Rims()
+abstract class WheelsModule {
 
-    @Provides
-    fun provideTires(): Tires {
-        val tires = Tires()
-        tires.inflate()
-        return tires
+    @Module
+    companion object WheelsModule{
+        @JvmStatic
+        @Provides
+        fun provideRims() = Rims()
+
+        @JvmStatic
+        @Provides
+        fun provideTires(): Tires {
+            val tires = Tires()
+            tires.inflate()
+            return tires
+        }
+
+        @JvmStatic
+        @Provides
+        fun provideWheels(rims: Rims, tires: Tires) = Wheels(rims, tires)
     }
 
-    @Provides
-    fun provideWheels(rims: Rims, tires: Tires) =
-        Wheels(rims, tires)
 }

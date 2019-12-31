@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.tphamtran.dagger2example.car.Car
 import com.tphamtran.dagger2example.dagger.CarComponent
 import com.tphamtran.dagger2example.dagger.DaggerCarComponent
-import com.tphamtran.dagger2example.dagger.DieselEngineModule
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -18,7 +17,8 @@ class MainActivity : AppCompatActivity() {
 
         carComponent = DaggerCarComponent
             .builder()
-            .dieselEngineModule(DieselEngineModule(100))
+            .horsePower(150)
+            .engineCapacity(1400)
             .build()
 
         carComponent.inject(this)
