@@ -4,6 +4,7 @@ import com.tphamtran.dagger2example.car.DieselEngine
 import com.tphamtran.dagger2example.car.Engine
 import dagger.Binds
 import dagger.Module
+import dagger.Provides
 
 //@Module
 //class DieselEngineModule {
@@ -14,8 +15,11 @@ import dagger.Module
 //}
 
 @Module
-abstract class DieselEngineModule {
+class DieselEngineModule (private val horsePower: Int) {
 
-    @Binds
-    abstract fun bindEngine(engine: DieselEngine): Engine
+    // Don't rely on Smart Cast too much, bro!! this method should return Engine (interface)
+    // Without explicit say so, Kotlin compiler will inference based on the the return value (DieselEngine)
+    // Dagger can't find the correct Module >> Crash
+    @Provides
+    fun provideEngine(): Engine = DieselEngine(horsePower)
 }
